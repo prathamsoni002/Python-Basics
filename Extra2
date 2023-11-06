@@ -1,0 +1,76 @@
+Server.java
+
+import java.rmi.*;  
+import java.rmi.server.*;  
+public class Server extends UnicastRemoteObject implements Adder1{  
+public Server() throws RemoteException{  
+super();  
+}  
+public int add(int x,int y){return x+y;}  
+}  
+
+
+
+
+
+Client.java
+
+
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+
+public class Client {
+
+    public static void main(String[] args) throws Exception {
+        Adder1 stub = (Adder1) Naming.lookup("rmi://localhost:5001/sunoo");
+
+        int sum = stub.add(1, 2);
+
+        System.out.println("The sum is: " + sum);
+    }
+}
+
+
+
+
+
+
+Adder1.java       (Interface)
+
+import java.rmi.*;
+public interface Adder1 extends Remote
+{
+    public int add(int a ,int b) throws RemoteException;
+}
+
+
+
+
+
+ServerName.java
+
+import java.rmi.*;  
+import java.rmi.registry.*;  
+public class ServerName{  
+public static void main(String args[]){  
+try{  
+Adder1 stub=new Server();  
+Naming.rebind("rmi://localhost:5001/sunoo",stub);  
+}catch(Exception e){System.out.println(e);}  
+}  
+}  
+
+
+
+
+
+Terminal:
+
+
+Java RMI
+javac *.java
+rmiregistry 5001
+
+java ServerName
+
+java Client
