@@ -1,0 +1,41 @@
+// Webservice:
+
+1. File -> New -> Dynamic Web project
+2. Project Name=> Calculator
+	Dynamic Web module Version: 2.5
+	Add proj to an EAR
+	Finish
+3.Right click on Calculator -> 
+	New -> Class
+	
+	Package:  com.learn.ws
+	Name: Calculator
+	click on Finish
+4. Calculator.java
+------------------------------
+	package com.learn.ws;
+
+	public class Calculator {
+
+		public int add(int a,int b)
+
+		{
+			return a+b;
+		}
+
+-----------------------------------------------
+5. Right Click on Calculator.java
+	New -> Other -> Webservice -> Webservice -> Next
+	client type: Java Proxy
+	side the slider to Test Client
+	Publish the web service -> Next
+
+	Select the add(int, int) method in the methods
+	finish
+
+6. Test page is open:
+7. Select the add(int, int) in the methods
+8. Add the values and invoke the webservice.
+
+9. wsdl doc is in WebContent -> wsdl Calculator.wsdl
+	
