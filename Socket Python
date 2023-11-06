@@ -1,0 +1,39 @@
+# HARIOM DEVRAJ SONI COMP C 36
+# CN EXP 8 (TCP/IP PROTOCOL)
+# SERVER SITE:
+print("HARIOM DEVRAJ SONI COMP C 36")
+
+import socket
+s = socket.socket()
+print("Socket Created Successfully")
+s.bind(("localhost", 9998))# 9999 is the port number used for the Socket connection
+s.listen(3)
+print("Waiting for the connection")
+
+while True: #Forever loop until we interrupt it or an error occurs
+    c, addr = s.accept()
+    print("Connected with ", addr)
+    c.send(bytes("CN_EXP8_C36 TCP connection", "utf-8"))
+    ack = c.recv(1024).decode()
+    print("Acknoledgement recived is:\n", ack)
+    c.close()
+
+
+----------------------------------------------------------------------------
+
+
+# HARIOM DEVRAJ SONI COMP C 36
+# CN EXP 8 (TCP/IP PROTOCOL)
+# CLIENT SITE:
+print("HARIOM DEVRAJ SONI COMP C 36")
+import socket
+
+c = socket.socket()
+c.connect(("localhost", 9998))
+# 9999 is the port number of the service which we want to recieve.
+print("Recieved message is:\n", c.recv(1024).decode())
+ack ="The message was recieved successfully thanks for the connection"
+c.send(bytes(ack, "utf-8"))
+# 1024 is buffer size
+
+
