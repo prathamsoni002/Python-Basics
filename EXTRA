@@ -1,0 +1,45 @@
+SA Practical 1
+SA Practical
+Creating Web Service
+https://www.youtube.com/watch?v=0z-HvSfr-M4
+------------------------------------------------
+          from flask import Flask, request, jsonify
+          app = Flask(__name__)
+          @app.route('/addition/<int:a>/<int:b>', methods=['GET'])
+          def add(a, b):
+          result = a + b
+          return jsonify({"result": result})
+          if __name__ == '__main__':
+          app.run(debug=True)
+Run
+          pip3 install flask
+          python3 webservice.py
+
+
+RMI
+Terminal 1
+          javac *.java
+          rmiregistry 5001
+
+
+SA Practical 2
+Terminal 2
+          java ServerName
+Terminal 3
+          java Client
+
+
+Design patterns
+
+Singleton
+https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm
+Abstract Factory
+https://www.tutorialspoint.com/design_pattern/abstract_factory_pattern.htm
+Facade
+https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
+Composite
+https://www.tutorialspoint.com/design_pattern/composite_pattern.htm
+Observer
+https://www.tutorialspoint.com/design_pattern/observer_pattern.htm
+Strategy
+https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm
